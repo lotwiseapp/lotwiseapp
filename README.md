@@ -145,7 +145,7 @@ The benchmark source is in [`src/benchmark/`](src/benchmark/), with the runner a
 
 ## Presentation materials
 
-The [`presentation_materials/`](presentation_materials/) directory will contain the project slides and a video demonstration for the hackathon submission.
+The [`presentation_materials/`](presentation_materials/) directory contains the project slides and a video demonstration for the hackathon submission.
 
 ## Our goal
 
