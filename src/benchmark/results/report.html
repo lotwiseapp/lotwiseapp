@@ -1,0 +1,768 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>LotWise benchmark</title>
+<style>
+body{margin:0;background:#f4f7f4;color:#172e27;font:15px/1.55 system-ui}main{max-width:920px;margin:auto;padding:27px 20px}
+h1{margin:6px 0;font-size:clamp(2rem,7vw,3.2rem);letter-spacing:-.06em}header,section{border:1px solid #dbe6de;border-radius:12px;padding:16px 20px;background:white;margin-bottom:12px;overflow:auto}
+header{background:#173f34;color:#effbf1}h2{margin-top:0;letter-spacing:-.03em}table{width:100%;border-collapse:collapse;text-align:left}
+td,th{padding:8px;border-bottom:1px solid #e5ece7}small{display:block;color:#526962}progress{width:clamp(60px,20vw,210px);accent-color:#218564}
+pre{max-width:54ch;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.8rem}summary{cursor:pointer}
+</style></head><body><main>
+<header><strong>LotWise · Synthetic extraction benchmark</strong><h1>Extraction results</h1>
+<p>15 / 20 exact cases · 20 valid extractions</p></header>
+<section><h2>Structured extraction scores</h2><table><thead><tr><th>Field group</th><th>F1 chart</th><th>F1</th><th>Precision</th><th>Recall</th></tr></thead>
+<tbody><tr><th>Publication and update dates</th><td><progress value="1.0000" max="1" aria-label="Publication and update dates F1"></progress></td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr><tr><th>Product records</th><td><progress value="0.9796" max="1" aria-label="Product records F1"></progress></td><td>98.0%</td><td>96.0%</td><td>100.0%</td></tr><tr><th>Name, brand, pack and kind</th><td><progress value="0.9592" max="1" aria-label="Name, brand, pack and kind F1"></progress></td><td>95.9%</td><td>94.0%</td><td>97.9%</td></tr><tr><th>Identifiers and roles</th><td><progress value="0.9787" max="1" aria-label="Identifiers and roles F1"></progress></td><td>97.9%</td><td>95.8%</td><td>100.0%</td></tr><tr><th>Scope basis</th><td><progress value="0.9388" max="1" aria-label="Scope basis F1"></progress></td><td>93.9%</td><td>92.0%</td><td>95.8%</td></tr><tr><th>Batch alternatives</th><td><progress value="0.9000" max="1" aria-label="Batch alternatives F1"></progress></td><td>90.0%</td><td>90.0%</td><td>90.0%</td></tr><tr><th>Individual scope conditions</th><td><progress value="0.9302" max="1" aria-label="Individual scope conditions F1"></progress></td><td>93.0%</td><td>95.2%</td><td>90.9%</td></tr></tbody></table>
+<p>Failed requests count as missing fields in recall. Free-text reasons, actions, excerpts and review notes are available for human comparison.</p></section>
+<section><h2>Cases</h2><table><thead><tr><th>Case</th><th>Article</th><th>Result</th><th>Time</th><th>Details</th></tr></thead>
+<tbody><tr><td>ss-01</td><td>Pakasteherneitä vedetään myynnistä<small>paragraph</small></td><td>Exact</td><td>5.3s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Koepelto Pakasteherneet&quot;,
+      &quot;returned_product&quot;: &quot;Koepelto Pakasteherneet&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Saattaa sisältää kovaa muovia.&quot;,
+        &quot;action&quot;: &quot;Palauta tuote ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;Takaisinveto koskee vain päiväystä 18.9.2027 (parasta ennen).&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Herneseassa saattaa olla kovan muovin paloja.&quot;,
+        &quot;action&quot;: &quot;Palauta tuote ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;vain päiväystä 18.9.2027 (parasta ennen)&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-02</td><td>Sinappia puuttuu kastikkeen ainesosaluettelosta<small>bullets</small></td><td>Differences</td><td>5.8s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {
+    &quot;scope_basis&quot;: {
+      &quot;missing&quot;: [
+        [
+          &quot;P1&quot;,
+          &quot;scope_basis&quot;,
+          &quot;specific_conditions&quot;
+        ]
+      ],
+      &quot;extra&quot;: [
+        [
+          &quot;P1&quot;,
+          &quot;scope_basis&quot;,
+          &quot;unspecified&quot;
+        ]
+      ]
+    }
+  },
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Aamuranta Tillikastike&quot;,
+      &quot;returned_product&quot;: &quot;Aamuranta Tillikastike&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Ainesosaluettelosta puuttuu sinappi.&quot;,
+        &quot;action&quot;: &quot;Palauta kyseinen pullo myymälään.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Osasta pulloja puuttuu sinappi ainesosaluettelosta.&quot;,
+        &quot;action&quot;: &quot;Palauta kyseinen pullo myymälään. Verkkokauppa kertoo hyvityksestä tilausviestissä.&quot;,
+        &quot;scope_raw&quot;: &quot;Viimeinen käyttöpäivä: 4.3.2027 tai aikaisempi&quot;,
+        &quot;review_reason&quot;: &quot;Tiedote koskee vain osaa pulloista, mutta ei yksilöi kaikkia affected batches.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-03</td><td>Kahden välipalapatukan erät<small>table</small></td><td>Differences</td><td>7.8s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {
+    &quot;product&quot;: {
+      &quot;missing&quot;: [],
+      &quot;extra&quot;: [
+        [
+          &quot;Extra1&quot;
+        ]
+      ]
+    },
+    &quot;identity&quot;: {
+      &quot;missing&quot;: [],
+      &quot;extra&quot;: [
+        [
+          &quot;Extra1&quot;,
+          &quot;brand_raw&quot;,
+          &quot;kajo koe&quot;
+        ],
+        [
+          &quot;Extra1&quot;,
+          &quot;name_raw&quot;,
+          &quot;kajo koe kaurapala kaakao&quot;
+        ],
+        [
+          &quot;Extra1&quot;,
+          &quot;pack_size_raw&quot;,
+          [
+            1,
+            &quot;45&quot;,
+            &quot;g&quot;
+          ]
+        ],
+        [
+          &quot;Extra1&quot;,
+          &quot;product_kind&quot;,
+          &quot;food&quot;
+        ]
+      ]
+    },
+    &quot;identifier&quot;: {
+      &quot;missing&quot;: [],
+      &quot;extra&quot;: [
+        [
+          &quot;Extra1&quot;,
+          &quot;ean&quot;,
+          &quot;0208300000038&quot;,
+          &quot;affected_product&quot;
+        ]
+      ]
+    },
+    &quot;scope_basis&quot;: {
+      &quot;missing&quot;: [],
+      &quot;extra&quot;: [
+        [
+          &quot;Extra1&quot;,
+          &quot;scope_basis&quot;,
+          &quot;specific_conditions&quot;
+        ]
+      ]
+    },
+    &quot;clause&quot;: {
+      &quot;missing&quot;: [
+        [
+          &quot;P1&quot;,
+          [
+            [
+              &quot;best_before&quot;,
+              &quot;equals&quot;,
+              [
+                {
+                  &quot;day&quot;: 10,
+                  &quot;month&quot;: 11,
+                  &quot;year&quot;: 2027
+                }
+              ]
+            ],
+            [
+              &quot;lot&quot;,
+              &quot;equals&quot;,
+              [
+                &quot;KC-305&quot;
+              ]
+            ]
+          ]
+        ]
+      ],
+      &quot;extra&quot;: [
+        [
+          &quot;Extra1&quot;,
+          [
+            [
+              &quot;best_before&quot;,
+              &quot;equals&quot;,
+              [
+                {
+                  &quot;day&quot;: 10,
+                  &quot;month&quot;: 11,
+                  &quot;year&quot;: 2027
+                }
+              ]
+            ],
+            [
+              &quot;lot&quot;,
+              &quot;equals&quot;,
+              [
+                &quot;KC-305&quot;
+              ]
+            ]
+          ]
+        ]
+      ]
+    },
+    &quot;predicate&quot;: {
+      &quot;missing&quot;: [
+        [
+          &quot;P1&quot;,
+          [
+            &quot;best_before&quot;,
+            &quot;equals&quot;,
+            [
+              {
+                &quot;day&quot;: 10,
+                &quot;month&quot;: 11,
+                &quot;year&quot;: 2027
+              }
+            ]
+          ]
+        ],
+        [
+          &quot;P1&quot;,
+          [
+            &quot;lot&quot;,
+            &quot;equals&quot;,
+            [
+              &quot;KC-305&quot;
+            ]
+          ]
+        ]
+      ],
+      &quot;extra&quot;: [
+        [
+          &quot;Extra1&quot;,
+          [
+            &quot;best_before&quot;,
+            &quot;equals&quot;,
+            [
+              {
+                &quot;day&quot;: 10,
+                &quot;month&quot;: 11,
+                &quot;year&quot;: 2027
+              }
+            ]
+          ]
+        ],
+        [
+          &quot;Extra1&quot;,
+          [
+            &quot;lot&quot;,
+            &quot;equals&quot;,
+            [
+              &quot;KC-305&quot;
+            ]
+          ]
+        ]
+      ]
+    }
+  },
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Kajo Koe Kaurapala Kaakao&quot;,
+      &quot;returned_product&quot;: &quot;Kajo Koe Kaurapala Kaakao&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Ilmoittamatonta kananmunaa.&quot;,
+        &quot;action&quot;: &quot;Palauta pakkaukset ostomyymälään.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Raaka-aineessa on kananmunaa, jota ei ilmoiteta pakkauksessa.&quot;,
+        &quot;action&quot;: &quot;Palauta pakkaukset ostomyymälään.&quot;,
+        &quot;scope_raw&quot;: &quot;KC-312 — 17.11.2027&quot;
+      }
+    },
+    {
+      &quot;expected_product&quot;: &quot;Kajo Koe Kaurapala Omena&quot;,
+      &quot;returned_product&quot;: &quot;Kajo Koe Kaurapala Omena&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Ilmoittamatonta kananmunaa.&quot;,
+        &quot;action&quot;: &quot;Palauta pakkaukset ostomyymälään.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Raaka-aineessa on kananmunaa, jota ei ilmoiteta pakkauksessa.&quot;,
+        &quot;action&quot;: &quot;Palauta pakkaukset ostomyymälään.&quot;,
+        &quot;scope_raw&quot;: &quot;KO-410 — 21.11.2027&quot;
+      }
+    },
+    {
+      &quot;expected_product&quot;: null,
+      &quot;returned_product&quot;: &quot;Kajo Koe Kaurapala Kaakao&quot;,
+      &quot;expected&quot;: {},
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Raaka-aineessa on kananmunaa, jota ei ilmoiteta pakkauksessa.&quot;,
+        &quot;action&quot;: &quot;Palauta pakkaukset ostomyymälään.&quot;,
+        &quot;scope_raw&quot;: &quot;KC-305 — 10.11.2027&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-04</td><td>Lasten kulhon valmistuserä<small>aside</small></td><td>Exact</td><td>4.5s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Kide Kokeilu Sininen Eväskulho&quot;,
+      &quot;returned_product&quot;: &quot;Kide Kokeilu Sininen Eväskulho&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Materiaalista siirtyi liikaa melamiinia.&quot;,
+        &quot;action&quot;: &quot;Lopeta käyttö ja palauta kulho ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Tutkimuksessa materiaalista siirtyi liikaa melamiinia.&quot;,
+        &quot;action&quot;: &quot;Kulho palautetaan ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;Takaisinveto koskee valmistuskuukautta 12/2026.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-05</td><td>Hasselpähkinää suklaalevyssä<small>lead</small></td><td>Exact</td><td>6.7s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Metsäkolo Maitosuklaa&quot;,
+      &quot;returned_product&quot;: &quot;Metsäkolo Maitosuklaa&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Saattaa sisältää ilmoittamatonta hasselpähkinää.&quot;,
+        &quot;action&quot;: &quot;Palauta pakkaus kauppaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Suklaassa voi olla ilmoittamatonta hasselpähkinää.&quot;,
+        &quot;action&quot;: &quot;Pakkaukset voi palauttaa kauppaan.&quot;,
+        &quot;scope_raw&quot;: &quot;parasta ennen 3.9.2027–6.9.2027, molemmat päätepäivät mukaan lukien&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-06</td><td>Tietyllä kuorileimalla merkityt munat<small>definition</small></td><td>Exact</td><td>6.2s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Niittykoe Vapaan kanan munat&quot;,
+      &quot;returned_product&quot;: &quot;Niittykoe Vapaan kanan munat&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Tilalla on todettu salmonellaa.&quot;,
+        &quot;action&quot;: &quot;Älä käytä kyseisiä munia ja palauta ne ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Tilalla on todettu salmonellaa.&quot;,
+        &quot;action&quot;: &quot;Älä käytä kyseisiä munia ja palauta ne ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;Kuorileima 2FI90021 tai 2FI90022; Parasta ennen 22.2.2027 tai aikaisempi. Sekä kuorileiman että päiväyksen on täsmättävä.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-07</td><td>Pakastekeiton valmistusikkunat<small>subheads</small></td><td>Exact</td><td>6.7s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Koeranta Hernekeitto&quot;,
+      &quot;returned_product&quot;: &quot;Koeranta Hernekeitto&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Mahdollisia pieniä metallisiruja.&quot;,
+        &quot;action&quot;: &quot;Palauta näihin ikkunoihin kuuluvat pakkaukset myymälään.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Pieni metallisirujen riski.&quot;,
+        &quot;action&quot;: &quot;Palauta näihin ikkunoihin kuuluvat pakkaukset myymälään.&quot;,
+        &quot;scope_raw&quot;: &quot;Erä KP14: pakkausaika 06:15–08:00, rajat mukaan lukien. Erä KP17: pakkausaika 14:00–15:45, rajat mukaan lukien.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-08</td><td>Irtokarkeissa väärä pussitarra<small>blockquote</small></td><td>Exact</td><td>6.1s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Koehillo Sitruunavohveli&quot;,
+      &quot;returned_product&quot;: &quot;Koehillo Sitruunavohveli&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Pussitarrassa ei ilmoiteta maitoa.&quot;,
+        &quot;action&quot;: &quot;Palauta väärin merkitty pussi ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Strawberry candy label used on lemon sweets; contains milk, which the label does not declare.&quot;,
+        &quot;action&quot;: &quot;Return the incorrectly labelled bag to the place of purchase.&quot;,
+        &quot;scope_raw&quot;: &quot;Väärän mansikkatarran EAN on 0208300000083; tarrassa lukee ”Koehillo Mansikkavohveli 120 g”; parasta ennen -päiväys on 11.10.2027.&quot;,
+        &quot;review_reason&quot;: &quot;The product identifier is for the incorrect strawberry label; the affected product’s own identifier is not stated.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-09</td><td>Yrttisekoituksen kaikki erät<small>short</small></td><td>Exact</td><td>5.0s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Saarikoe Metsäyrttisekoitus&quot;,
+      &quot;returned_product&quot;: &quot;Saarikoe Metsäyrttisekoitus&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Pakkauksessa ei ilmoiteta selleriä.&quot;,
+        &quot;action&quot;: &quot;Palauta pakkaus myymälään.&quot;,
+        &quot;scope_raw&quot;: &quot;Kaikki erät.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Pakkauksen ainesosaluettelosta puuttuu selleri.&quot;,
+        &quot;action&quot;: &quot;Saarikoe pyytää palauttamaan pakkauksen myymälään.&quot;,
+        &quot;scope_raw&quot;: &quot;Kaikki erät: Saarikoe Metsäyrttisekoitus, 30 g. Tuotenumero SYK-30.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-10</td><td>Kolme päiväystä pakastevadelmissa<small>linebreaks</small></td><td>Exact</td><td>7.4s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Routala Testi Pakastevadelmat&quot;,
+      &quot;returned_product&quot;: &quot;Routala Testi Pakastevadelmat&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Saattaa sisältää kiviä.&quot;,
+        &quot;action&quot;: &quot;Palauta viallinen pussi ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Yhden pakastevadelmatoimituksen mukana on voinut päästä kiviä.&quot;,
+        &quot;action&quot;: &quot;Viallisia pusseja voi palauttaa ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;Parasta ennen: 01.06.2027, 04.06.2027 ja 11.06.2027. Muut päiväykset eivät kuulu ilmoitukseen.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-11</td><td>Kaksi pakkauskokoa vaniljajuomalle<small>mixed</small></td><td>Exact</td><td>6.6s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Hiekkapolku Vaniljajuoma&quot;,
+      &quot;returned_product&quot;: &quot;Hiekkapolku Vaniljajuoma&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Eräkohtainen pilaantumisriski.&quot;,
+        &quot;action&quot;: &quot;Palauta avaamaton pullo ostomyymälään.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Eräkohtainen pilaantumisriski.&quot;,
+        &quot;action&quot;: &quot;Palauta avaamaton pullo ostomyymälään.&quot;,
+        &quot;scope_raw&quot;: &quot;250 ml | 0208300000106 | 5.3.2027&quot;
+      }
+    },
+    {
+      &quot;expected_product&quot;: &quot;Hiekkapolku Vaniljajuoma&quot;,
+      &quot;returned_product&quot;: &quot;Hiekkapolku Vaniljajuoma&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Eräkohtainen pilaantumisriski.&quot;,
+        &quot;action&quot;: &quot;Palauta avaamaton pullo ostomyymälään.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Eräkohtainen pilaantumisriski.&quot;,
+        &quot;action&quot;: &quot;Palauta avaamaton pullo ostomyymälään.&quot;,
+        &quot;scope_raw&quot;: &quot;1 l | 0208300000113 | 7.3.2027&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-12</td><td>Lisäys paahdettujen siementen tiedotteeseen<small>update</small></td><td>Differences</td><td>5.3s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {
+    &quot;clause&quot;: {
+      &quot;missing&quot;: [
+        [
+          &quot;P1&quot;,
+          [
+            [
+              &quot;best_before&quot;,
+              &quot;equals&quot;,
+              [
+                {
+                  &quot;day&quot;: 2,
+                  &quot;month&quot;: 12,
+                  &quot;year&quot;: 2027
+                }
+              ]
+            ],
+            [
+              &quot;lot&quot;,
+              &quot;equals&quot;,
+              [
+                &quot;KS-601&quot;
+              ]
+            ]
+          ]
+        ],
+        [
+          &quot;P1&quot;,
+          [
+            [
+              &quot;best_before&quot;,
+              &quot;equals&quot;,
+              [
+                {
+                  &quot;day&quot;: 9,
+                  &quot;month&quot;: 12,
+                  &quot;year&quot;: 2027
+                }
+              ]
+            ],
+            [
+              &quot;lot&quot;,
+              &quot;equals&quot;,
+              [
+                &quot;KS-608&quot;
+              ]
+            ]
+          ]
+        ]
+      ],
+      &quot;extra&quot;: [
+        [
+          &quot;P1&quot;,
+          [
+            [
+              &quot;best_before&quot;,
+              &quot;equals&quot;,
+              [
+                {
+                  &quot;day&quot;: 2,
+                  &quot;month&quot;: 12,
+                  &quot;year&quot;: 2027
+                }
+              ]
+            ]
+          ]
+        ],
+        [
+          &quot;P1&quot;,
+          [
+            [
+              &quot;best_before&quot;,
+              &quot;equals&quot;,
+              [
+                {
+                  &quot;day&quot;: 9,
+                  &quot;month&quot;: 12,
+                  &quot;year&quot;: 2027
+                }
+              ]
+            ]
+          ]
+        ]
+      ]
+    },
+    &quot;predicate&quot;: {
+      &quot;missing&quot;: [
+        [
+          &quot;P1&quot;,
+          [
+            &quot;lot&quot;,
+            &quot;equals&quot;,
+            [
+              &quot;KS-601&quot;
+            ]
+          ]
+        ],
+        [
+          &quot;P1&quot;,
+          [
+            &quot;lot&quot;,
+            &quot;equals&quot;,
+            [
+              &quot;KS-608&quot;
+            ]
+          ]
+        ]
+      ],
+      &quot;extra&quot;: []
+    }
+  },
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Kaarnakoe Paahdetut Auringonkukansiemenet&quot;,
+      &quot;returned_product&quot;: &quot;Kaarnakoe Paahdetut Auringonkukansiemenet&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Saattaa sisältää pieniä metallinpaloja.&quot;,
+        &quot;action&quot;: &quot;Palauta pussi ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Siemenissä voi olla pieniä metallinpaloja.&quot;,
+        &quot;action&quot;: &quot;Pussin voi palauttaa ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;erän KS-608, parasta ennen 9.12.2027 ... erä KS-601, parasta ennen 2.12.2027&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-13</td><td>Pakkausmerkintä kahdella kielellä<small>bilingual</small></td><td>Differences</td><td>5.3s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {
+    &quot;identity&quot;: {
+      &quot;missing&quot;: [
+        [
+          &quot;P1&quot;,
+          &quot;brand_raw&quot;,
+          &quot;luotokoe&quot;
+        ]
+      ],
+      &quot;extra&quot;: [
+        [
+          &quot;P1&quot;,
+          &quot;brand_raw&quot;,
+          &quot;luotokoen&quot;
+        ]
+      ]
+    }
+  },
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Luotokoe Mantelikaakao&quot;,
+      &quot;returned_product&quot;: &quot;Luotokoe Mantelikaakao&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Maitoa ei ilmoiteta suomenkielisessä ainesosaluettelossa.&quot;,
+        &quot;action&quot;: &quot;Palauta ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Maitoa ei ole mainittu suomenkielisessä ainesosaluettelossa.&quot;,
+        &quot;action&quot;: &quot;Palauta ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;erää LM-42, parasta ennen 12/2027&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-14</td><td>Yhdestä lastaerästä värin siirtymistä<small>figure</small></td><td>Differences</td><td>6.4s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {
+    &quot;identity&quot;: {
+      &quot;missing&quot;: [
+        [
+          &quot;P1&quot;,
+          &quot;product_kind&quot;,
+          &quot;food_contact_material&quot;
+        ]
+      ],
+      &quot;extra&quot;: [
+        [
+          &quot;P1&quot;,
+          &quot;product_kind&quot;,
+          &quot;other&quot;
+        ]
+      ]
+    }
+  },
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Uomakoe Punainen Paistinlasta&quot;,
+      &quot;returned_product&quot;: &quot;Uomakoe Punainen Paistinlasta&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Pinnasta voi siirtyä väriä ruokaan.&quot;,
+        &quot;action&quot;: &quot;Lopeta lastan käyttö ja palauta se ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Väriä voi siirtyä lastan pinnasta ruokaan.&quot;,
+        &quot;action&quot;: &quot;Lopeta lastan käyttö ja palauta se ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;Vain erätunnuksella R-62 merkitty lasta.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-15</td><td>Kolmen puuron eräruudut<small>table</small></td><td>Exact</td><td>8.6s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Asterikoe Aamupuuro Omena&quot;,
+      &quot;returned_product&quot;: &quot;Asterikoe Aamupuuro Omena&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Mahdollisia lasinsiruja.&quot;,
+        &quot;action&quot;: &quot;Palauta kyseinen purkki ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Mahdollinen lasinsiru puurolinjalla; merkintä kannen reunassa.&quot;,
+        &quot;action&quot;: &quot;Palauta kyseinen purkki ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;Parasta ennen 21.3.2027&quot;
+      }
+    },
+    {
+      &quot;expected_product&quot;: &quot;Asterikoe Aamupuuro Mustikka&quot;,
+      &quot;returned_product&quot;: &quot;Asterikoe Aamupuuro Mustikka&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Mahdollisia lasinsiruja.&quot;,
+        &quot;action&quot;: &quot;Palauta kyseinen purkki ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Mahdollinen lasinsiru puurolinjalla; merkintä kannen reunassa.&quot;,
+        &quot;action&quot;: &quot;Palauta kyseinen purkki ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;Parasta ennen 23.3.2027&quot;
+      }
+    },
+    {
+      &quot;expected_product&quot;: &quot;Asterikoe Aamupuuro Päärynä&quot;,
+      &quot;returned_product&quot;: &quot;Asterikoe Aamupuuro Päärynä&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Mahdollisia lasinsiruja.&quot;,
+        &quot;action&quot;: &quot;Palauta kyseinen purkki ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Mahdollinen lasinsiru puurolinjalla; merkintä kannen reunassa.&quot;,
+        &quot;action&quot;: &quot;Palauta kyseinen purkki ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;Parasta ennen 22.3.2027&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-16</td><td>Toimituserä rajattu päivämäärällä<small>paragraph</small></td><td>Exact</td><td>5.1s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Kaarna-astia Juomapikari&quot;,
+      &quot;returned_product&quot;: &quot;Kaarna-astia Juomapikari&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Sisäpinnasta voi siirtyä lyijyä.&quot;,
+        &quot;action&quot;: &quot;Lopeta käyttö ja palauta pikari kauppaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Lyijyä voi siirtyä pikarin sisäpinnasta.&quot;,
+        &quot;action&quot;: &quot;Lopettakaa käyttö ja palauttakaa pikari kauppaan.&quot;,
+        &quot;scope_raw&quot;: &quot;Kauppoihin 15.1.2027 tai sen jälkeen toimitetut pikarit&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-17</td><td>Lounasleivän pakkaajamerkki ja päiväys<small>bullets</small></td><td>Exact</td><td>6.2s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Tunturitesti Tofu Lounasleipä&quot;,
+      &quot;returned_product&quot;: &quot;Tunturitesti Tofu Lounasleipä&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Ilmoittamatonta seesamia.&quot;,
+        &quot;action&quot;: &quot;Palauta leipä myymälään.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Seesamia sisältävää kastiketta ei ole listattu.&quot;,
+        &quot;action&quot;: &quot;Palauta leipä myymälään.&quot;,
+        &quot;scope_raw&quot;: &quot;Pakkaajamerkki FT-91; Viimeinen käyttöpäivä 20.2.2027&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-18</td><td>Ravintolisän kuukauden tarkkuudella merkitty erä<small>definition</small></td><td>Exact</td><td>6.2s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Aamukoe D3&quot;,
+      &quot;returned_product&quot;: &quot;Aamukoe D3&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;D-vitamiinimäärä ylittää pakkauksessa ilmoitetun määrän.&quot;,
+        &quot;action&quot;: &quot;Lopeta käyttö ja palauta purkki ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Mitattu D-vitamiinimäärä ylittää pakkauksessa ilmoitetun määrän.&quot;,
+        &quot;action&quot;: &quot;Lopeta käyttö ja palauta purkki ostopaikkaan.&quot;,
+        &quot;scope_raw&quot;: &quot;Vain yllä oleva erä ja päiväys. Erätunnus AK-31; Parasta ennen 08/2028.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-19</td><td>Leipätikkujen painokellon tarkistus<small>subheads</small></td><td>Exact</td><td>5.9s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Pihakoivu Juustotikut&quot;,
+      &quot;returned_product&quot;: &quot;Pihakoivu Juustotikut&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Saattaa sisältää vieraan muovinpalan.&quot;,
+        &quot;action&quot;: &quot;Palauta pussit ostomyymälään.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;Osassa pusseista saattaa olla vieras muovinpala.&quot;,
+        &quot;action&quot;: &quot;Pussit voi palauttaa ostomyymälään.&quot;,
+        &quot;scope_raw&quot;: &quot;Erä PT-90, parasta ennen 11.5.2027... aikamerkintä on 09:20 tai 11:40.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr><tr><td>ss-20</td><td>Kaurajauhon jakelu ja takaisinvetopäiväys<small>lead</small></td><td>Exact</td><td>5.7s</td><td><details><summary>Inspect</summary><pre>{
+  &quot;error&quot;: null,
+  &quot;field_diffs&quot;: {},
+  &quot;free_text_for_review&quot;: [
+    {
+      &quot;expected_product&quot;: &quot;Pystykokeen Kaurajauho&quot;,
+      &quot;returned_product&quot;: &quot;Pystykokeen Kaurajauho&quot;,
+      &quot;expected&quot;: {
+        &quot;reason&quot;: &quot;Saattaa sisältää ilmoittamatonta vehnää.&quot;,
+        &quot;action&quot;: &quot;Palauta pussi ostopaikkaan.&quot;
+      },
+      &quot;returned&quot;: {
+        &quot;reason&quot;: &quot;May contain undeclared wheat.&quot;,
+        &quot;action&quot;: &quot;Return the bag to the place of purchase.&quot;,
+        &quot;scope_raw&quot;: &quot;Pussissa ei ole eränumeroa koskevaa rajausta: ratkaiseva merkintä on parasta ennen 12.10.2027.&quot;
+      }
+    }
+  ]
+}</pre></details></td></tr></tbody></table></section></main></body></html>

@@ -1,0 +1,1209 @@
+[
+  {
+    "id": "ss-01",
+    "title": "Pakasteherneitä vedetään myynnistä",
+    "layout": "paragraph",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 1
+      },
+      "products": [
+        {
+          "name_raw": "Koepelto Pakasteherneet",
+          "brand_raw": "Koepelto",
+          "pack_size_raw": "450 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Saattaa sisältää kovaa muovia.",
+          "action": "Palauta tuote ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000014",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 9,
+                      "day": 18
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scope_raw": "Takaisinveto koskee vain päiväystä 18.9.2027 (parasta ennen)."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-02",
+    "title": "Sinappia puuttuu kastikkeen ainesosaluettelosta",
+    "layout": "bullets",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 2
+      },
+      "products": [
+        {
+          "name_raw": "Aamuranta Tillikastike",
+          "brand_raw": "Aamuranta",
+          "pack_size_raw": "230 ml",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Ainesosaluettelosta puuttuu sinappi.",
+          "action": "Palauta kyseinen pullo myymälään.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000021",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "use_by",
+                  "operator": "on_or_before",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 3,
+                      "day": 4
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-03",
+    "title": "Kahden välipalapatukan erät",
+    "layout": "table",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 3
+      },
+      "products": [
+        {
+          "name_raw": "Kajo Koe Kaurapala Kaakao",
+          "brand_raw": "Kajo Koe",
+          "pack_size_raw": "45 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Ilmoittamatonta kananmunaa.",
+          "action": "Palauta pakkaukset ostomyymälään.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000038",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "KC-305"
+                  ]
+                },
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 11,
+                      "day": 10
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "KC-312"
+                  ]
+                },
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 11,
+                      "day": 17
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name_raw": "Kajo Koe Kaurapala Omena",
+          "brand_raw": "Kajo Koe",
+          "pack_size_raw": "45 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Ilmoittamatonta kananmunaa.",
+          "action": "Palauta pakkaukset ostomyymälään.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000045",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "KO-410"
+                  ]
+                },
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 11,
+                      "day": 21
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-04",
+    "title": "Lasten kulhon valmistuserä",
+    "layout": "aside",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 4
+      },
+      "products": [
+        {
+          "name_raw": "Kide Kokeilu Sininen Eväskulho",
+          "brand_raw": "Kide Kokeilu",
+          "pack_size_raw": "350 ml",
+          "product_kind": "food_contact_material",
+          "scope_basis": "specific_conditions",
+          "reason": "Materiaalista siirtyi liikaa melamiinia.",
+          "action": "Lopeta käyttö ja palauta kulho ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "product_code",
+              "value_raw": "KB-350-B",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "production_date",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2026,
+                      "month": 12,
+                      "day": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-05",
+    "title": "Hasselpähkinää suklaalevyssä",
+    "layout": "lead",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 5
+      },
+      "products": [
+        {
+          "name_raw": "Metsäkolo Maitosuklaa",
+          "brand_raw": "Metsäkolo",
+          "pack_size_raw": "90 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Saattaa sisältää ilmoittamatonta hasselpähkinää.",
+          "action": "Palauta pakkaus kauppaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000052",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "best_before",
+                  "operator": "between_inclusive",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 9,
+                      "day": 3
+                    },
+                    {
+                      "year": 2027,
+                      "month": 9,
+                      "day": 6
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-06",
+    "title": "Tietyllä kuorileimalla merkityt munat",
+    "layout": "definition",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 6
+      },
+      "products": [
+        {
+          "name_raw": "Niittykoe Vapaan kanan munat",
+          "brand_raw": "Niittykoe",
+          "pack_size_raw": "10 kpl",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Tilalla on todettu salmonellaa.",
+          "action": "Älä käytä kyseisiä munia ja palauta ne ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000069",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "producer_mark",
+                  "operator": "one_of",
+                  "values_raw": [
+                    "2FI90021",
+                    "2FI90022"
+                  ]
+                },
+                {
+                  "field": "best_before",
+                  "operator": "on_or_before",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 2,
+                      "day": 22
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-07",
+    "title": "Pakastekeiton valmistusikkunat",
+    "layout": "subheads",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 7
+      },
+      "products": [
+        {
+          "name_raw": "Koeranta Hernekeitto",
+          "brand_raw": "Koeranta",
+          "pack_size_raw": "400 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Mahdollisia pieniä metallisiruja.",
+          "action": "Palauta näihin ikkunoihin kuuluvat pakkaukset myymälään.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000076",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "KP14"
+                  ]
+                },
+                {
+                  "field": "packing_time",
+                  "operator": "between_inclusive",
+                  "values_raw": [
+                    "06:15",
+                    "08:00"
+                  ]
+                }
+              ]
+            },
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "KP17"
+                  ]
+                },
+                {
+                  "field": "packing_time",
+                  "operator": "between_inclusive",
+                  "values_raw": [
+                    "14:00",
+                    "15:45"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-08",
+    "title": "Irtokarkeissa väärä pussitarra",
+    "layout": "blockquote",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 8
+      },
+      "products": [
+        {
+          "name_raw": "Koehillo Sitruunavohveli",
+          "brand_raw": "Koehillo",
+          "pack_size_raw": "120 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Pussitarrassa ei ilmoiteta maitoa.",
+          "action": "Palauta väärin merkitty pussi ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000083",
+              "role": "incorrect_label"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "label_text",
+                  "operator": "contains",
+                  "values_raw": [
+                    "Koehillo Mansikkavohveli 120 g"
+                  ]
+                },
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 10,
+                      "day": 11
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-09",
+    "title": "Yrttisekoituksen kaikki erät",
+    "layout": "short",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 9
+      },
+      "products": [
+        {
+          "name_raw": "Saarikoe Metsäyrttisekoitus",
+          "brand_raw": "Saarikoe",
+          "pack_size_raw": "30 g",
+          "product_kind": "food",
+          "scope_basis": "all_batches_explicit",
+          "reason": "Pakkauksessa ei ilmoiteta selleriä.",
+          "action": "Palauta pakkaus myymälään.",
+          "identifiers": [
+            {
+              "type": "product_code",
+              "value_raw": "SYK-30",
+              "role": "affected_product"
+            }
+          ],
+          "scope_raw": "Kaikki erät."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-10",
+    "title": "Kolme päiväystä pakastevadelmissa",
+    "layout": "linebreaks",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 10
+      },
+      "products": [
+        {
+          "name_raw": "Routala Testi Pakastevadelmat",
+          "brand_raw": "Routala Testi",
+          "pack_size_raw": "500 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Saattaa sisältää kiviä.",
+          "action": "Palauta viallinen pussi ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000090",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "best_before",
+                  "operator": "one_of",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 6,
+                      "day": 1
+                    },
+                    {
+                      "year": 2027,
+                      "month": 6,
+                      "day": 4
+                    },
+                    {
+                      "year": 2027,
+                      "month": 6,
+                      "day": 11
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-11",
+    "title": "Kaksi pakkauskokoa vaniljajuomalle",
+    "layout": "mixed",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 11
+      },
+      "products": [
+        {
+          "name_raw": "Hiekkapolku Vaniljajuoma",
+          "brand_raw": "Hiekkapolku",
+          "pack_size_raw": "250 ml",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Eräkohtainen pilaantumisriski.",
+          "action": "Palauta avaamaton pullo ostomyymälään.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000106",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "use_by",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 3,
+                      "day": 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name_raw": "Hiekkapolku Vaniljajuoma",
+          "brand_raw": "Hiekkapolku",
+          "pack_size_raw": "1 l",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Eräkohtainen pilaantumisriski.",
+          "action": "Palauta avaamaton pullo ostomyymälään.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000113",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "use_by",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 3,
+                      "day": 7
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-12",
+    "title": "Lisäys paahdettujen siementen tiedotteeseen",
+    "layout": "update",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 12
+      },
+      "products": [
+        {
+          "name_raw": "Kaarnakoe Paahdetut Auringonkukansiemenet",
+          "brand_raw": "Kaarnakoe",
+          "pack_size_raw": "200 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Saattaa sisältää pieniä metallinpaloja.",
+          "action": "Palauta pussi ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000120",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "KS-601"
+                  ]
+                },
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 12,
+                      "day": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "KS-608"
+                  ]
+                },
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 12,
+                      "day": 9
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated_dates": [
+        {
+          "year": 2027,
+          "month": 2,
+          "day": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-13",
+    "title": "Pakkausmerkintä kahdella kielellä",
+    "layout": "bilingual",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 13
+      },
+      "products": [
+        {
+          "name_raw": "Luotokoe Mantelikaakao",
+          "brand_raw": "Luotokoe",
+          "pack_size_raw": "300 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Maitoa ei ilmoiteta suomenkielisessä ainesosaluettelossa.",
+          "action": "Palauta ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000137",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "LM-42"
+                  ]
+                },
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 12,
+                      "day": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-14",
+    "title": "Yhdestä lastaerästä värin siirtymistä",
+    "layout": "figure",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 14
+      },
+      "products": [
+        {
+          "name_raw": "Uomakoe Punainen Paistinlasta",
+          "brand_raw": "Uomakoe",
+          "pack_size_raw": "28 cm",
+          "product_kind": "food_contact_material",
+          "scope_basis": "specific_conditions",
+          "reason": "Pinnasta voi siirtyä väriä ruokaan.",
+          "action": "Lopeta lastan käyttö ja palauta se ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "product_code",
+              "value_raw": "UPL-P",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "R-62"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-15",
+    "title": "Kolmen puuron eräruudut",
+    "layout": "table",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 15
+      },
+      "products": [
+        {
+          "name_raw": "Asterikoe Aamupuuro Omena",
+          "brand_raw": "Asterikoe",
+          "pack_size_raw": "160 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Mahdollisia lasinsiruja.",
+          "action": "Palauta kyseinen purkki ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000144",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 3,
+                      "day": 21
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name_raw": "Asterikoe Aamupuuro Mustikka",
+          "brand_raw": "Asterikoe",
+          "pack_size_raw": "160 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Mahdollisia lasinsiruja.",
+          "action": "Palauta kyseinen purkki ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000151",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 3,
+                      "day": 23
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name_raw": "Asterikoe Aamupuuro Päärynä",
+          "brand_raw": "Asterikoe",
+          "pack_size_raw": "160 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Mahdollisia lasinsiruja.",
+          "action": "Palauta kyseinen purkki ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000168",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 3,
+                      "day": 22
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-16",
+    "title": "Toimituserä rajattu päivämäärällä",
+    "layout": "paragraph",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 16
+      },
+      "products": [
+        {
+          "name_raw": "Kaarna-astia Juomapikari",
+          "brand_raw": "Kaarna-astia",
+          "pack_size_raw": "220 ml",
+          "product_kind": "food_contact_material",
+          "scope_basis": "specific_conditions",
+          "reason": "Sisäpinnasta voi siirtyä lyijyä.",
+          "action": "Lopeta käyttö ja palauta pikari kauppaan.",
+          "identifiers": [
+            {
+              "type": "product_code",
+              "value_raw": "KA-JP22",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "delivery_date",
+                  "operator": "on_or_after",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 1,
+                      "day": 15
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-17",
+    "title": "Lounasleivän pakkaajamerkki ja päiväys",
+    "layout": "bullets",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 17
+      },
+      "products": [
+        {
+          "name_raw": "Tunturitesti Tofu Lounasleipä",
+          "brand_raw": "Tunturitesti",
+          "pack_size_raw": "190 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Ilmoittamatonta seesamia.",
+          "action": "Palauta leipä myymälään.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000175",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "packer_mark",
+                  "operator": "equals",
+                  "values_raw": [
+                    "FT-91"
+                  ]
+                },
+                {
+                  "field": "use_by",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 2,
+                      "day": 20
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-18",
+    "title": "Ravintolisän kuukauden tarkkuudella merkitty erä",
+    "layout": "definition",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 18
+      },
+      "products": [
+        {
+          "name_raw": "Aamukoe D3",
+          "brand_raw": "Aamukoe",
+          "pack_size_raw": "60 kapselia",
+          "product_kind": "food_supplement",
+          "scope_basis": "specific_conditions",
+          "reason": "D-vitamiinimäärä ylittää pakkauksessa ilmoitetun määrän.",
+          "action": "Lopeta käyttö ja palauta purkki ostopaikkaan.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000182",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "AK-31"
+                  ]
+                },
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2028,
+                      "month": 8,
+                      "day": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-19",
+    "title": "Leipätikkujen painokellon tarkistus",
+    "layout": "subheads",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 19
+      },
+      "products": [
+        {
+          "name_raw": "Pihakoivu Juustotikut",
+          "brand_raw": "Pihakoivu",
+          "pack_size_raw": "100 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Saattaa sisältää vieraan muovinpalan.",
+          "action": "Palauta pussit ostomyymälään.",
+          "identifiers": [
+            {
+              "type": "ean",
+              "value_raw": "0208300000199",
+              "role": "affected_product"
+            }
+          ],
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "lot",
+                  "operator": "equals",
+                  "values_raw": [
+                    "PT-90"
+                  ]
+                },
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 5,
+                      "day": 11
+                    }
+                  ]
+                },
+                {
+                  "field": "time_mark",
+                  "operator": "one_of",
+                  "values_raw": [
+                    "09:20",
+                    "11:40"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ss-20",
+    "title": "Kaurajauhon jakelu ja takaisinvetopäiväys",
+    "layout": "lead",
+    "expected": {
+      "published_date": {
+        "year": 2027,
+        "month": 2,
+        "day": 20
+      },
+      "products": [
+        {
+          "name_raw": "Pystykokeen Kaurajauho",
+          "brand_raw": "Pystykokeen",
+          "pack_size_raw": "750 g",
+          "product_kind": "food",
+          "scope_basis": "specific_conditions",
+          "reason": "Saattaa sisältää ilmoittamatonta vehnää.",
+          "action": "Palauta pussi ostopaikkaan.",
+          "scope_clauses": [
+            {
+              "all_of": [
+                {
+                  "field": "best_before",
+                  "operator": "equals",
+                  "date_values": [
+                    {
+                      "year": 2027,
+                      "month": 10,
+                      "day": 12
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

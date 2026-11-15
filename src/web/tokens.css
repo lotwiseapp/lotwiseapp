@@ -1,0 +1,54 @@
+:root {
+  color-scheme: light;
+
+  --violet: #30204F;
+  --purple: #6A4CFF;
+  --purple-ink: #5336D6;
+  --violet-hover: #423065;
+  --lime: #B8F14B;
+  --lime-soft: #E8FBD3;
+  --lavender: #F3EEFF;
+
+  --background: #FAF9FF;
+  --surface: #FFFFFF;
+  --surface-alt: #F4F2FF;
+  --border: #E5E1F3;
+  --control-border: #9588AC;
+  --ink: #1F1633;
+  --secondary: #6B5F8A;
+  --muted: #8A8099;
+  --on-violet: #E5DFF3;
+  --on-violet-border: #5C4D78;
+
+  --affected: #E33935;
+  --affected-bg: #FFF0EF;
+  --affected-text: #A3212A;
+  --inspect: #F59E0B;
+  --inspect-bg: #FFF3DF;
+  --inspect-text: #784800;
+  --new: #3B82F6;
+  --new-bg: #EBF3FF;
+  --new-text: #1D4E9A;
+  --no-match: #6B7280;
+  --no-match-bg: #EFF0F4;
+  --no-match-text: #4B5261;
+  --resolved: #16A34A;
+  --resolved-bg: #E7F7ED;
+  --resolved-text: #176438;
+
+  --font: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 40px;
+  --space-7: 48px;
+  --radius-control: 8px;
+  --radius-card: 12px;
+  --radius-feature: 16px;
+  --shadow-drawer: -12px 0 48px rgb(31 22 51 / 12%);
+  --text-small: 12px;
+  --text-body: 14px;
+  --motion: 150ms ease;
+}

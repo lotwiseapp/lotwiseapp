@@ -1,0 +1,9 @@
+inventory_id,product_name,ean,product_code,pack_size,lot,best_before,use_by,producer_mark,quantity,location
+MK-004,Via Red Thai Curry,6409100071899,,320 g,,,2026-06-09,,7,Prepared meals C1
+MK-005,Via Red Thai Curry,6409100071899,,320 g,,,2026-06-12,,5,Prepared meals C1
+MK-006,Panda nougat maitosuklaa,6412500038720,,145 g,,2026-04-18,,,16,Confectionery A4
+MK-007,Chef Lundén Kana-caesar patonki,,,200 g,,,2026-10-07,,9,Grab-and-go C2
+MK-018,Vemondo Vegan Topping Mozzarella Flavour,,,150 g,L1141152,2026-11-19,,,8,Dairy alternatives C5
+MK-019,Harbor Demo Lemon Oat Biscuits,0209000000003,,180 g,HB-2611,2027-04-30,,,13,Confectionery A4
+MK-020,Harbor Demo Lemon Oat Biscuits,0209000000003,,180 g,HB-2612,2027-04-30,,,8,Confectionery A4
+MK-021,Market House Corn Tortillas,,,240 g,CT-41,,2027-01-15,,20,Bakery A1

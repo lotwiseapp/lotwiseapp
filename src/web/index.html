@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LotWise | Recall desk</title>
+  <meta name="description" content="Check store inventory against food and product recall notices.">
+  <meta name="theme-color" content="#30204F">
+  <link rel="icon" type="image/svg+xml" href="/assets/lotwise.svg">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-incidents" viewBox="0 0 24 24"><path d="M8 5H5v3m11-3h3v3m0 8v3h-3M8 19H5v-3"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="icon-inventory" viewBox="0 0 24 24"><path d="m4 8 8-4 8 4v9l-8 4-8-4V8Zm0 0 8 4 8-4m-8 4v9m-4-15 8 4"/></symbol>
+    <symbol id="icon-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+    <symbol id="icon-history" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 2.5 7M3 5v6h6m3-4v5l3 2"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="icon-upload" viewBox="0 0 24 24"><path d="M12 16V4m-4 4 4-4 4 4M4 15v5h16v-5"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M6 18 18 6M8 6h10v10"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24"><path d="M12 8v5m0 4h.01"/><path d="m10.3 4.8-7.1 12A2.1 2.1 0 0 0 5 20h14a2.1 2.1 0 0 0 1.8-3.2l-7.1-12a2 2 0 0 0-3.4 0Z"/></symbol>
+    <symbol id="icon-inspect" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></symbol>
+    <symbol id="icon-minus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8 12h8"/></symbol>
+    <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M6 7a7 7 0 0 1 12-1l2 6M4 12l2 6a7 7 0 0 0 12-1"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V3H3v13h5"/></symbol>
+    <symbol id="icon-location" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <aside class="sidebar">
+    <div class="brand"><img src="/assets/lotwise.svg" alt="" width="44" height="44"><span>LotWise<small>Recall desk</small></span></div>
+    <nav aria-label="Workspace">
+      <button type="button" data-view="matches" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#icon-incidents"></use></svg> Incidents <span class="nav-count" id="nav-open" aria-hidden="true" hidden></span></button>
+      <button type="button" data-view="inventory"><svg class="icon" aria-hidden="true"><use href="#icon-inventory"></use></svg> Inventory <span class="nav-count" id="nav-inventory" aria-hidden="true" hidden></span></button>
+      <button type="button" data-view="notifications"><svg class="icon" aria-hidden="true"><use href="#icon-bell"></use></svg> New incidents <b id="unread" hidden></b></button>
+      <button type="button" data-view="past"><svg class="icon" aria-hidden="true"><use href="#icon-history"></use></svg> Past incidents</button>
+      <button type="button" data-view="resolved"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Resolved <span class="nav-count" id="nav-resolved" aria-hidden="true" hidden></span></button>
+    </nav>
+    <div class="source-block">
+      <span class="source-dot" id="source-dot"></span><strong id="source-state">Connecting</strong>
+      <p id="source-description">Checking the notice database…</p>
+      <button id="source-details" type="button">Source details <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></button>
+    </div>
+  </aside>
+  <main id="main-content" tabindex="-1">
+    <header class="topbar">
+      <span id="breadcrumb">Workspace <span aria-hidden="true">/</span> Incidents</span>
+      <div class="top-actions">
+        <button id="refresh-now" class="icon-button" type="button" aria-label="Check for updated recall matches" title="Check for updated recall matches"><svg class="icon" aria-hidden="true"><use href="#icon-refresh"></use></svg></button>
+        <button id="top-notifications" class="secondary" type="button"><svg class="icon" aria-hidden="true"><use href="#icon-bell"></use></svg> New incidents<span id="top-unread" hidden></span></button>
+        <label for="upload" class="primary upload-label"><svg class="icon" aria-hidden="true"><use href="#icon-upload"></use></svg> Upload CSV</label>
+        <input id="upload" type="file" accept=".csv,text/csv,text/plain" aria-label="Upload inventory CSV">
+      </div>
+    </header>
+    <div class="content">
+      <div id="feedback" class="feedback" role="status" hidden></div>
+      <div id="simulation" class="simulation" role="status" hidden><strong>Simulation active</strong> · Harbor stock alerts are part of a test exercise.</div>
+      <section id="matches" aria-labelledby="matches-title">
+        <div class="hero" id="overview">
+          <div class="hero-copy">
+            <span class="eyebrow">YOUR RECALL WORKSPACE</span>
+            <h1 id="matches-title">Know what needs attention.</h1>
+            <p id="overview-description">Connect your stock to recall notices. See the affected batches, understand the evidence, and act with clarity.</p>
+            <div class="hero-actions">
+              <button type="button" id="load-sample" class="secondary">Load sample inventory <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></button>
+              <a href="/examples/market_inventory.csv">Download sample CSV</a>
+            </div>
+            <div id="loaded-inventory" class="loaded-inventory" hidden><svg class="icon" aria-hidden="true"><use href="#icon-inventory"></use></svg><span id="loaded-name"></span><span class="separator" aria-hidden="true">·</span><span id="loaded-locations"></span></div>
+          </div>
+          <section class="screening" aria-labelledby="screening-title">
+            <div class="screening-heading"><h2 id="screening-title">Inventory screening</h2><svg class="icon" aria-hidden="true"><use href="#icon-incidents"></use></svg></div>
+            <strong id="screened-count">—</strong>
+            <p id="screened-caption">Upload inventory to see results</p>
+            <div class="screening-bar" id="screening-bar" role="img" aria-label="No inventory screened yet"></div>
+            <div id="screening-legend" class="screening-legend" hidden></div>
+          </section>
+        </div>
+        <section id="onboarding" class="onboarding" aria-label="Get started">
+          <div id="dropzone" class="dropzone">
+            <span class="drop-icon"><svg class="icon" aria-hidden="true"><use href="#icon-upload"></use></svg></span>
+            <div><h2>Start with your inventory</h2><p>Drop a CSV here, or choose a file.</p><small>UTF-8 · up to 1,000 rows · 512 KB</small></div>
+            <button id="choose-file" class="primary" type="button">Choose CSV</button>
+          </div>
+          <details class="csv-guide"><summary>What should my CSV include?</summary><p>Start with <code>product_name</code> and an identifier such as <code>ean</code>. Add <code>lot</code>, <code>best_before</code> or <code>use_by</code> to check batches, and <code>quantity</code> and <code>location</code> to help your team act. Missing fields can lead to an inspection result.</p><a href="/examples/market_inventory.csv">Download the example format</a></details>
+          <ol class="getting-started"><li><span>01</span><div><strong>Add your stock</strong><p>Upload your inventory or try the sample.</p></div></li><li><span>02</span><div><strong>Review the evidence</strong><p>See exactly what matches and what is missing.</p></div></li><li><span>03</span><div><strong>Coordinate the response</strong><p>Copy the draft email, then track resolution.</p></div></li></ol>
+        </section>
+        <div class="stats">
+          <button type="button" class="stat affected" id="stat-matches" aria-label="Show confirmed matches">
+            <span class="stat-heading"><span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#icon-alert"></use></svg></span><span>Confirmed matches</span></span>
+            <strong id="matched-count">—</strong><small id="matched-desc">Product identity and batch</small>
+            <span class="stat-link">Review affected stock <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="stat inspection" id="stat-inspection" aria-label="Show incidents needing inspection">
+            <span class="stat-heading"><span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#icon-inspect"></use></svg></span><span>Needs inspection</span></span>
+            <strong id="inspect-count">—</strong><small>Verify identity or scope</small>
+            <span class="stat-link">Check missing details <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="stat no-match" id="stat-no-match" aria-label="Show inventory with no matching recall">
+            <span class="stat-heading"><span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#icon-minus"></use></svg></span><span>No match found</span></span>
+            <strong id="clear-count">—</strong><small>Within tracked notices</small>
+            <span class="stat-link">View inventory rows <span aria-hidden="true">↗</span></span>
+          </button>
+        </div>
+        <div class="panel" id="matches-panel">
+          <div class="panel-heading">
+            <div><h2>Open incidents <span id="open-total" class="heading-count" hidden></span></h2><p id="match-subtitle">Upload a CSV to start checking stock.</p></div>
+            <button type="button" id="review-next" class="primary" hidden>Review next incident <svg class="icon" aria-hidden="true"><use href="#icon-chevron"></use></svg></button>
+          </div>
+          <div class="incident-toolbar">
+            <div class="filter-tabs" role="group" aria-label="Incident status"><button type="button" data-filter="attention" aria-pressed="true">All open <span id="filter-all-count">0</span></button><button type="button" data-filter="MATCH" aria-pressed="false">Confirmed <span id="filter-match-count">0</span></button><button type="button" data-filter="NEEDS_INSPECTION" aria-pressed="false">Needs inspection <span id="filter-inspect-count">0</span></button></div>
+            <div class="controls"><label for="search">Search product, lot or location</label><div class="search-field"><svg class="icon" aria-hidden="true"><use href="#icon-inspect"></use></svg><input id="search" type="search" placeholder="Product, lot or location…"></div><label for="location-filter">Incident location</label><select id="location-filter"><option value="">All locations</option></select><select id="filter" aria-label="Filter status" hidden><option value="attention">All open incidents</option><option value="MATCH">Confirmed matches</option><option value="NEEDS_INSPECTION">Needs inspection</option></select></div>
+          </div>
+          <div id="filter-summary" class="filter-summary" hidden><span id="visible-count" role="status"></span><button type="button" id="reset-filters" class="detail-link">Clear filters</button></div>
+          <div class="controls mobile-sort">
+            <label for="incident-sort">Sort incidents</label>
+            <select id="incident-sort">
+              <option value="status">Sort by decision</option><option value="product_name">Sort by product</option>
+              <option value="lot">Sort by lot</option><option value="date">Sort by date</option>
+              <option value="location">Sort by location</option><option value="quantity">Sort by quantity</option>
+            </select>
+            <button id="incident-direction" class="secondary" type="button"></button>
+          </div>
+          <div id="match-list"></div>
+        </div>
+      </section>
+      <section id="inventory" aria-labelledby="inventory-title" hidden>
+        <div class="page-title"><h1 id="inventory-title">Inventory</h1><p id="inventory-subtitle">Upload a CSV to see your stock here.</p></div>
+        <div class="panel">
+          <div class="panel-heading"><div class="controls"><label for="inventory-search">Search inventory</label><div class="search-field"><svg class="icon" aria-hidden="true"><use href="#icon-inspect"></use></svg><input id="inventory-search" type="search" placeholder="Product, lot or location…"></div><label for="inventory-filter">Inventory status</label><select id="inventory-filter"><option value="">All statuses</option><option value="MATCH">Confirmed matches</option><option value="NEEDS_INSPECTION">Needs inspection</option><option value="NO_MATCH">No match found</option><option value="resolved">Resolved</option></select><label for="inventory-location">Inventory location</label><select id="inventory-location"><option value="">All locations</option></select></div></div>
+          <div class="table-scroll" id="inventory-table"></div>
+          <p class="coverage-note"><svg class="icon" aria-hidden="true"><use href="#icon-minus"></use></svg> “No match” means no intersection with the tracked notices. It is not a safety clearance.</p>
+        </div>
+      </section>
+      <section id="notifications" aria-labelledby="notifications-title" hidden>
+        <div class="page-title"><span class="eyebrow">RECALL UPDATES</span><h1 id="notifications-title">New incidents</h1><p>New or upgraded matches since your first inventory check. Review the evidence, then acknowledge the update.</p></div>
+        <div class="panel incident-stream"><div id="notification-list"></div></div>
+      </section>
+      <section id="past" aria-labelledby="past-title" hidden>
+        <div class="page-title"><span class="eyebrow">UPDATE HISTORY</span><h1 id="past-title">Past incidents</h1><p>Acknowledged updates and their original evidence. Acknowledgment records your review; stock stays open until resolved.</p></div>
+        <div class="panel incident-stream"><div id="past-list"></div></div>
+      </section>
+      <section id="resolved" aria-labelledby="resolved-title" hidden>
+        <div class="page-title"><span class="eyebrow">COMPLETED ACTIONS</span><h1 id="resolved-title">Resolved</h1><p>Stock incidents you marked as handled. Reopen an incident if more work is needed.</p></div>
+        <div class="panel incident-stream"><div id="resolved-list"></div></div>
+      </section>
+      <footer><span>Matches reflect the notices available to LotWise.</span><span id="checked">Waiting for the first check</span></footer>
+    </div>
+  </main>
+  <dialog id="details" aria-label="Incident details"><div class="drawer-kicker"><span>INCIDENT REVIEW</span><button type="button" id="close-details" class="icon-button" aria-label="Close incident details"><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg></button></div><article id="details-content"></article><div class="dialog-footer"><div class="dialog-actions" id="detail-actions"></div><form method="dialog"><button class="secondary">Close</button></form></div></dialog>
+  <dialog id="import-review" aria-labelledby="import-title"><span class="eyebrow">INVENTORY IMPORT</span><h2 id="import-title">Replace current inventory?</h2><p id="import-description"></p><div class="import-warning"><strong>This starts a new inventory workspace.</strong><p>Your current uploaded rows, acknowledgments and resolved history in this browser will be replaced. The recall database stays available.</p></div><div class="import-actions"><button type="button" id="cancel-import" class="secondary" autofocus>Keep current inventory</button><button type="button" id="confirm-import" class="primary">Replace inventory</button></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

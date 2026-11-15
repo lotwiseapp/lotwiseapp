@@ -1,0 +1,308 @@
+{
+  "url": "https://www.ruokavirasto.fi/elintarvikkeet/ohjeita-kuluttajille/takaisinvedot-2023-/pakastetussa-chilissa-kadmiumylitys/",
+  "formats": {
+    "markdown": true,
+    "json": true
+  },
+  "maxAgeMs": 0,
+  "sharedParams": {
+    "mainContentOnly": true
+  },
+  "timeoutOpts": {
+    "milliseconds": 120000,
+    "behavior": "return-partial"
+  },
+  "jsonParams": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "published_date": {
+          "type": "object",
+          "properties": {
+            "year": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1000,
+              "maximum": 9999
+            },
+            "month": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1,
+              "maximum": 12
+            },
+            "day": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1,
+              "maximum": 31
+            }
+          },
+          "required": [
+            "year",
+            "month",
+            "day"
+          ],
+          "description": "Article publication date."
+        },
+        "updated_dates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1000,
+                "maximum": 9999
+              },
+              "month": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 12
+              },
+              "day": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 31
+              }
+            },
+            "required": [
+              "year",
+              "month",
+              "day"
+            ],
+            "description": "Date of an explicit update."
+          },
+          "description": "Update dates stated in this article."
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name_raw": {
+                "type": "string",
+                "description": "Product name as stated, including its variant when given."
+              },
+              "brand_raw": {
+                "type": "string",
+                "description": "Stated brand."
+              },
+              "pack_size_raw": {
+                "type": "string",
+                "description": "Pack size as printed, including multipack count."
+              },
+              "product_kind": {
+                "type": "string",
+                "description": "Kind of product.",
+                "enum": [
+                  "food",
+                  "infant_food_or_formula",
+                  "food_supplement",
+                  "food_contact_material",
+                  "other",
+                  "unknown"
+                ]
+              },
+              "identifiers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Identifier type stated by the source.",
+                      "enum": [
+                        "ean",
+                        "gtin",
+                        "barcode_unspecified",
+                        "product_code",
+                        "model_code",
+                        "unknown"
+                      ]
+                    },
+                    "value_raw": {
+                      "type": "string",
+                      "description": "Exact code as a string. Keep leading zeroes."
+                    },
+                    "role": {
+                      "type": "string",
+                      "description": "What the code identifies.",
+                      "enum": [
+                        "affected_product",
+                        "incorrect_label",
+                        "unknown"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value_raw",
+                    "role"
+                  ]
+                },
+                "description": "Codes for this product and pack only."
+              },
+              "scope_basis": {
+                "type": "string",
+                "description": "Use unspecified if the total affected scope is unclear or incomplete.",
+                "enum": [
+                  "specific_conditions",
+                  "all_batches_explicit",
+                  "all_marketed_batches_explicit",
+                  "unexpired_batches_explicit",
+                  "unspecified"
+                ]
+              },
+              "scope_clauses": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "all_of": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "type": "string",
+                            "description": "Restriction type. Finnish vkp means use_by.",
+                            "enum": [
+                              "best_before",
+                              "use_by",
+                              "date_mark",
+                              "production_date",
+                              "packing_date",
+                              "delivery_date",
+                              "lot",
+                              "producer_mark",
+                              "packer_mark",
+                              "production_time",
+                              "packing_time",
+                              "time_mark",
+                              "label_text",
+                              "other"
+                            ]
+                          },
+                          "operator": {
+                            "type": "string",
+                            "description": "Use one_of for a list, between_inclusive for an inclusive range.",
+                            "enum": [
+                              "equals",
+                              "one_of",
+                              "between_inclusive",
+                              "on_or_before",
+                              "before",
+                              "on_or_after",
+                              "after",
+                              "contains",
+                              "described_by"
+                            ]
+                          },
+                          "date_values": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "year": {
+                                  "type": [
+                                    "integer",
+                                    "null"
+                                  ],
+                                  "minimum": 1000,
+                                  "maximum": 9999
+                                },
+                                "month": {
+                                  "type": [
+                                    "integer",
+                                    "null"
+                                  ],
+                                  "minimum": 1,
+                                  "maximum": 12
+                                },
+                                "day": {
+                                  "type": [
+                                    "integer",
+                                    "null"
+                                  ],
+                                  "minimum": 1,
+                                  "maximum": 31
+                                }
+                              },
+                              "required": [
+                                "year",
+                                "month",
+                                "day"
+                              ],
+                              "description": "Source date. Unknown components are null."
+                            },
+                            "description": "Calendar restrictions only. A range contains lower then upper bound."
+                          },
+                          "values_raw": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Other restrictions. Preserve exact lot codes, marks and printed clock times."
+                          }
+                        },
+                        "required": [
+                          "field",
+                          "operator"
+                        ]
+                      },
+                      "description": "All conditions must apply together."
+                    }
+                  },
+                  "required": [
+                    "all_of"
+                  ]
+                },
+                "description": "Alternative groups of conditions. Keep each lot, date and time combination together."
+              },
+              "scope_raw": {
+                "type": "string",
+                "description": "Short verbatim excerpt showing the affected lots, dates or exclusions."
+              },
+              "review_reason": {
+                "type": "string",
+                "description": "Why this entry needs inspection, for example an external batch list or a missing date component."
+              },
+              "reason": {
+                "type": "string",
+                "description": "Short recall reason with named hazards or allergens and stated uncertainty."
+              },
+              "action": {
+                "type": "string",
+                "description": "Short source instruction, preserving conditions and alternatives."
+              }
+            },
+            "required": [
+              "scope_basis"
+            ]
+          },
+          "description": "One entry per affected product, variant or pack."
+        }
+      },
+      "required": [
+        "products"
+      ]
+    },
+    "instructions": "Use facts in this recall article only. Omit absent optional fields. Use one entry per affected product and pack. Keep identifiers as printed and label wrong-label codes as incorrect_label.\nUse {\"year\":2027,\"month\":7,\"day\":31} for dates. Read Finnish dates day-month-year. Missing components are null. Expand two-digit years only when the century is clear. Use an explicitly shared year when clear. For each date condition use date_values. Use values_raw for lot codes, marks, label text and clock times. Ranges have two ordered bounds. Scope clauses are OR, conditions within all_of are AND. Never mix lots and dates from different rows.\nUse an all-batches category only when explicitly stated. If the full scope is unclear, missing, externally listed or cannot be represented, use unspecified and explain in review_reason. Preserve known restrictions for inspection. Keep reason, action and scope excerpt brief."
+  }
+}

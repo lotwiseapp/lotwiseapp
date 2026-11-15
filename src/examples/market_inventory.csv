@@ -1,0 +1,25 @@
+inventory_id,product_name,ean,product_code,pack_size,lot,best_before,use_by,producer_mark,quantity,location
+MK-001,Coop Chopped Chili,7340191134195,,50 g,,2027-07-31,,,12,Freezer F2
+MK-002,Coop Chopped Chili,7340191134195,,50 g,,2027-08-31,,,8,Freezer F2
+MK-003,Coop Chopped Chili,7340191134195,,50 g,,,,,6,Back freezer
+MK-004,Via Red Thai Curry,6409100071899,,320 g,,,2026-06-09,,7,Prepared meals C1
+MK-005,Via Red Thai Curry,6409100071899,,320 g,,,2026-06-12,,5,Prepared meals C1
+MK-006,Panda nougat maitosuklaa,6412500038720,,145 g,,2026-04-18,,,16,Confectionery A4
+MK-007,Chef Lundén Kana-caesar patonki,,,200 g,,,2026-10-07,,9,Grab-and-go C2
+MK-008,Arla Protein Suklaa vanukas,,,200 g,,2027-01-08,,,11,Dairy C3
+MK-009,Leader Performance Protein Soft White Chocolate,6430051514821,,60 g,X07926,2027-04-13,,,14,Sports nutrition A6
+MK-010,Leader Performance Protein Soft White Chocolate,6430051514821,,60 g,X07926,2027-05-11,,,10,Sports nutrition A6
+MK-011,Xtra pakastemansikat,7340191150638,,500 g,V25 287,2027-04-14,,,8,Freezer F1
+MK-012,Xtra pakastemansikat,7340191150638,,500 g,V25 299,2027-04-14,,,15,Freezer F1
+MK-013,Foodin Kidneypapu luomu,6430048230338,,500 g,L281025,2027-05,,,10,Dry goods A2
+MK-014,Chopsticks Helper Panda,,6094071,,,,,,4,Kitchenware B2
+MK-015,Napoleon-valurautapannu alustalla,629162560032,56003,,,,,,2,Kitchenware B3
+MK-016,K-MENU Vapaa S/M10 530 g,6410405364074,,530 g,,2026-09-07,,2FI164181,6,Eggs C4
+MK-017,K-MENU Vapaa S/M10 530 g,6410405364074,,530 g,,2026-09-07,,,5,Eggs C4
+MK-018,Vemondo Vegan Topping Mozzarella Flavour,,,150 g,L1141152,2026-11-19,,,8,Dairy alternatives C5
+MK-019,Harbor Demo Lemon Oat Biscuits,0209000000003,,180 g,HB-2611,2027-04-30,,,13,Confectionery A4
+MK-020,Harbor Demo Lemon Oat Biscuits,0209000000003,,180 g,HB-2612,2027-04-30,,,8,Confectionery A4
+MK-021,Market House Corn Tortillas,,,240 g,CT-41,,2027-01-15,,20,Bakery A1
+MK-022,Lake Pantry Sparkling Apple,,,330 ml,AP-070,2027-11-03,,,24,Drinks A7
+MK-023,Market House Brown Rice,,,1 kg,BR-11,2028-02-01,,,7,Dry goods A2
+MK-024,Cedar Kitchen Measuring Cups,,CK-404,,,,,,3,Kitchenware B3

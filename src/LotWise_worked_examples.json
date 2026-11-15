@@ -1,0 +1,293 @@
+{
+  "record_kind": "MANUALLY_AUTHORED_DESIGN_EXAMPLES_NOT_CONTEXT_API_OUTPUT",
+  "complete_notice_examples": [
+    {
+      "article_id": 2,
+      "source_url": "https://www.ruokavirasto.fi/elintarvikkeet/ohjeita-kuluttajille/takaisinvedot-2023-/pakastetussa-chilissa-kadmiumylitys/",
+      "data": {
+        "published_date": {
+          "year": 2026,
+          "month": 10,
+          "day": 27
+        },
+        "products": [
+          {
+            "name_raw": "Coop Chopped Chili",
+            "brand_raw": "Coop",
+            "pack_size_raw": "50 g",
+            "product_kind": "food",
+            "identifiers": [
+              {
+                "type": "ean",
+                "value_raw": "7340191134195",
+                "role": "affected_product"
+              }
+            ],
+            "scope_basis": "specific_conditions",
+            "scope_clauses": [
+              {
+                "all_of": [
+                  {
+                    "field": "best_before",
+                    "operator": "equals",
+                    "date_values": [
+                      {
+                        "year": 2027,
+                        "month": 7,
+                        "day": 31
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "scope_raw": "Takaisinveto koskee vain tuote-erää parasta ennen -päiväyksellä**31.7.2027**.",
+            "reason": "Kadmiumia yli EU:n raja-arvon.",
+            "action": "Hävitä sisältö ja palauta tyhjä pakkaus ostopaikkaan hyvitystä varten."
+          }
+        ]
+      }
+    }
+  ],
+  "scope_examples": [
+    {
+      "article_id": 19,
+      "product": {
+        "name_raw": "Leader Performance Protein Soft White Chocolate",
+        "scope_basis": "specific_conditions",
+        "scope_raw": "- Leader Performance Protein Soft White Chocolate, 60 g EAN 6430051514821 parasta ennen: 13.4.2027 (erä X07926) ja 11.5.2027 (erä X10226)",
+        "scope_clauses": [
+          {
+            "all_of": [
+              {
+                "field": "lot",
+                "operator": "equals",
+                "values_raw": [
+                  "X07926"
+                ]
+              },
+              {
+                "field": "best_before",
+                "operator": "equals",
+                "date_values": [
+                  {
+                    "year": 2027,
+                    "month": 4,
+                    "day": 13
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "all_of": [
+              {
+                "field": "lot",
+                "operator": "equals",
+                "values_raw": [
+                  "X10226"
+                ]
+              },
+              {
+                "field": "best_before",
+                "operator": "equals",
+                "date_values": [
+                  {
+                    "year": 2027,
+                    "month": 5,
+                    "day": 11
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "article_id": 68,
+      "product": {
+        "name_raw": "Bonduelle Maissi",
+        "scope_basis": "specific_conditions",
+        "scope_clauses": [
+          {
+            "all_of": [
+              {
+                "field": "lot",
+                "operator": "equals",
+                "values_raw": [
+                  "L4230 008 07"
+                ]
+              },
+              {
+                "field": "production_time",
+                "operator": "between_inclusive",
+                "values_raw": [
+                  "06:55",
+                  "08:00"
+                ]
+              }
+            ]
+          },
+          {
+            "all_of": [
+              {
+                "field": "lot",
+                "operator": "equals",
+                "values_raw": [
+                  "L4230 008 07"
+                ]
+              },
+              {
+                "field": "production_time",
+                "operator": "between_inclusive",
+                "values_raw": [
+                  "13:00",
+                  "19:00"
+                ]
+              }
+            ]
+          },
+          {
+            "all_of": [
+              {
+                "field": "lot",
+                "operator": "equals",
+                "values_raw": [
+                  "L4230 008 08"
+                ]
+              },
+              {
+                "field": "production_time",
+                "operator": "between_inclusive",
+                "values_raw": [
+                  "13:00",
+                  "19:00"
+                ]
+              }
+            ]
+          },
+          {
+            "all_of": [
+              {
+                "field": "lot",
+                "operator": "equals",
+                "values_raw": [
+                  "L4231 008 08"
+                ]
+              },
+              {
+                "field": "production_time",
+                "operator": "between_inclusive",
+                "values_raw": [
+                  "05:00",
+                  "12:00"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "article_id": 4,
+      "product": {
+        "scope_basis": "unspecified",
+        "scope_clauses": [
+          {
+            "all_of": [
+              {
+                "field": "producer_mark",
+                "operator": "equals",
+                "values_raw": [
+                  "1FI15493"
+                ]
+              },
+              {
+                "field": "best_before",
+                "operator": "on_or_before",
+                "date_values": [
+                  {
+                    "year": null,
+                    "month": 10,
+                    "day": 28
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "review_reason": "The cutoff gives a day and month. The year needs review."
+      }
+    },
+    {
+      "article_id": 35,
+      "product": {
+        "name_raw": "Dr. Oetker Suklaamousse",
+        "scope_basis": "specific_conditions",
+        "scope_clauses": [
+          {
+            "all_of": [
+              {
+                "field": "lot",
+                "operator": "equals",
+                "values_raw": [
+                  "L5260"
+                ]
+              },
+              {
+                "field": "best_before",
+                "operator": "equals",
+                "date_values": [
+                  {
+                    "year": 2027,
+                    "month": 3,
+                    "day": null
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "article_id": 92,
+      "product": {
+        "name_raw": "Abu Fuad valkosipulikastike",
+        "scope_basis": "specific_conditions",
+        "scope_clauses": [
+          {
+            "all_of": [
+              {
+                "field": "best_before",
+                "operator": "equals",
+                "date_values": [
+                  {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 20
+                  }
+                ]
+              },
+              {
+                "field": "label_text",
+                "operator": "contains",
+                "values_raw": [
+                  "Abu Fuad punainen kastike 330 g"
+                ]
+              }
+            ]
+          }
+        ],
+        "identifiers": [
+          {
+            "type": "ean",
+            "value_raw": "6409490003548",
+            "role": "incorrect_label"
+          }
+        ]
+      }
+    }
+  ]
+}

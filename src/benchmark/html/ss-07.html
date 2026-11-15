@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pakastekeiton valmistusikkunat">
+<title>Pakastekeiton valmistusikkunat | LotWise-koeaineisto</title>
+<style>:root {
+  color-scheme: light;
+
+  --violet: #30204F;
+  --purple: #6A4CFF;
+  --purple-ink: #5336D6;
+  --violet-hover: #423065;
+  --lime: #B8F14B;
+  --lime-soft: #E8FBD3;
+  --lavender: #F3EEFF;
+
+  --background: #FAF9FF;
+  --surface: #FFFFFF;
+  --surface-alt: #F4F2FF;
+  --border: #E5E1F3;
+  --control-border: #9588AC;
+  --ink: #1F1633;
+  --secondary: #6B5F8A;
+  --muted: #8A8099;
+  --on-violet: #E5DFF3;
+  --on-violet-border: #5C4D78;
+
+  --affected: #E33935;
+  --affected-bg: #FFF0EF;
+  --affected-text: #A3212A;
+  --inspect: #F59E0B;
+  --inspect-bg: #FFF3DF;
+  --inspect-text: #784800;
+  --new: #3B82F6;
+  --new-bg: #EBF3FF;
+  --new-text: #1D4E9A;
+  --no-match: #6B7280;
+  --no-match-bg: #EFF0F4;
+  --no-match-text: #4B5261;
+  --resolved: #16A34A;
+  --resolved-bg: #E7F7ED;
+  --resolved-text: #176438;
+
+  --font: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 40px;
+  --space-7: 48px;
+  --radius-control: 8px;
+  --radius-card: 12px;
+  --radius-feature: 16px;
+  --motion: 150ms ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--background); color: var(--ink); font: 15px/1.6 var(--font); }
+h1, h2 { color: var(--violet); line-height: 1.2; letter-spacing: -.04em; }
+h1 { margin: var(--space-2) 0; font-size: clamp(30px, 5vw, 48px); }
+h2 { margin-top: 0; font-size: 20px; }
+a, summary { color: var(--purple-ink); font-weight: 650; text-underline-offset: .22em; }
+summary { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; }
+
+.topstripe { padding: var(--space-3) max(4vw, var(--space-3)); background: var(--violet); color: var(--surface); }
+.topstripe strong { color: var(--lime); }
+.page { max-width: 1080px; margin: auto; padding: var(--space-4) var(--space-3) var(--space-6); }
+.trail, time, small, figcaption { color: var(--secondary); font-size: 13px; }
+.trail { margin: 0 0 var(--space-3); }
+time { display: block; margin: var(--space-2) 0 var(--space-4); }
+.mark { display: inline-block; margin: var(--space-1) 0; padding: var(--space-1) var(--space-2); border-radius: var(--radius-control); background: var(--lavender); color: var(--violet); font-size: 13px; font-weight: 650; }
+.row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(160px, 1fr); gap: var(--space-3); }
+article, .sidebar, .report-section, .index-section {
+  height: max-content;
+  min-width: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+article { overflow-x: auto; }
+article > :first-child, .sidebar > :first-child { margin-top: 0; }
+article > :last-child, .sidebar > :last-child { margin-bottom: 0; }
+dt { font-weight: 650; }
+dd { margin: 0 0 var(--space-2); }
+figure { margin: var(--space-3) 0; }
+blockquote, .indented, dl, .figure-placeholder { margin: var(--space-3) 0; padding: 12px var(--space-3); border-left: 3px solid var(--purple); background: var(--lavender); }
+footer { padding: var(--space-3) max(4vw, var(--space-3)); border-top: 1px solid var(--border); color: var(--secondary); }
+table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+td, th { padding: var(--space-2); border-bottom: 1px solid var(--border); vertical-align: top; }
+thead th { background: var(--surface-alt); color: var(--violet); }
+th[scope="row"] { font-weight: 650; }
+small { display: block; }
+pre { max-width: 54ch; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .82rem; }
+
+.report-head { padding: var(--space-4); border-radius: var(--radius-feature); background: var(--violet); color: var(--on-violet); }
+.report-head h1 { color: var(--surface); }
+.report-head strong { color: var(--lime); }
+.report-head p { margin: var(--space-2) 0 0; }
+.report-section { margin-top: var(--space-3); overflow-x: auto; }
+.report-section > p { margin-bottom: 0; color: var(--secondary); font-size: 13px; }
+progress { width: clamp(52px, 19vw, 190px); height: 10px; vertical-align: middle; accent-color: var(--purple); }
+progress::-webkit-progress-bar { border-radius: 12px; background: var(--lavender); }
+progress::-webkit-progress-value { border-radius: 12px; background: var(--purple); }
+progress::-moz-progress-bar { border-radius: 12px; background: var(--purple); }
+.report-status { display: inline-block; padding: 2px var(--space-2); border-radius: 20px; font-weight: 650; white-space: nowrap; }
+.report-status.exact { color: var(--resolved-text); background: var(--resolved-bg); }
+.report-status.error { color: var(--affected-text); background: var(--affected-bg); }
+.report-status.differences { color: var(--inspect-text); background: var(--inspect-bg); }
+.index-section ul { margin: 0; padding-inline-start: var(--space-4); }
+.index-section li + li { margin-top: var(--space-1); }
+
+@media (max-width: 680px) {
+  .row { grid-template-columns: minmax(0, 1fr); }
+  article table { min-width: 340px; }
+  .page { padding-top: var(--space-3); }
+}
+</style>
+</head>
+<body class="newspage">
+<header class="topstripe"><strong>LotWise</strong> · Harjoitusjulkaisut</header>
+<main class="page content-main" id="content-main">
+<nav class="trail" aria-label="Sijainti">Etusivu / Elintarvikkeet / Harjoitustiedotteet</nav>
+<div class="main-title"><h1>Pakastekeiton valmistusikkunat</h1></div>
+<p class="mark">Kuvitteellinen testitiedote. Tuotteet ja erät ovat harjoitusaineistoa.</p>
+<time class="date" datetime="2027-02-07">7. helmikuuta 2027</time>
+<div class="row"><article><p>Koeranta ilmoittaa pienestä metallisirujen riskistä pakastekeitossaan. Tuote on <strong>Koeranta Hernekeitto</strong>, 400 g, EAN 0208300000076.</p>
+<h3>Pakkausrivi 1</h3>
+<p>Erä KP14: pakkausaika 06:15–08:00, rajat mukaan lukien.</p>
+<h3>Pakkausrivi 2</h3>
+<p>Erä KP17: pakkausaika 14:00–15:45, rajat mukaan lukien.</p>
+<p>Erät ja kellonajat ovat vaihtoehtoisia yhdistelmiä. Palauta näihin ikkunoihin kuuluvat pakkaukset myymälään.</p></article>
+<aside class="sidebar"><h2>Harjoitustiedotteet</h2><p>Tätä sivua käytetään tietojen poiminnan testaamiseen.</p></aside>
+</div>
+</main>
+<footer>LotWise · Harjoitusaineisto</footer>
+</body></html>
